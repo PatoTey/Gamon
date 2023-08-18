@@ -1,13 +1,73 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+	--background: #060802;
+	--primary: #55cc3e;
+	--secondary: #071c0e;
+	--accent: #32bd61;
+	--text: #eff6df;
+	--backgroundLight: #eff6df;
+	--textLight: #060802;
+	--secondaryLight: #caf2d7;
+	--accentLight: #124423;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	margin: 0;
+	color: var(--text);
+	background-color: var(--background);
+}
+
+.header {
+	padding: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.headernav {
+	display: flex;
+	align-items: center;
+	gap: 0.1em;
+}
+
+.navitem {
+	padding: 0.3em;
+	text-align: center;
+	border-radius: 1em;
+}
+
+.home {
+	padding: 0.5em;
+}
+
+.game {
+	padding: 1em;
+	background-color: var(--primary);
+	color: var(--textLight);
+	border-radius: 0.5em;
+	display: flex;
+	gap:1em;
+	align-items: center;
+}
+
+.gamedata {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+.gamedata h2, h3{
+	margin: 0;
+}
+
+.gameimg {
+	width: 5em;
+	height: 5em;
+	border-radius: 1em;
+}
+
+.footer {
+	background-color: var(--accent);
+	padding: 1.5em;
+	color: var(--secondary);
+	text-align: center;
 }
