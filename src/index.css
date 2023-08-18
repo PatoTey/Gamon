@@ -14,6 +14,7 @@ body {
 	margin: 0;
 	color: var(--text);
 	background-color: var(--background);
+	font-family: 'Merriweather Sans', sans-serif;
 }
 
 .header {
@@ -33,20 +34,38 @@ body {
 	padding: 0.3em;
 	text-align: center;
 	border-radius: 1em;
+	font-size: 0.8em;
+}
+
+.sitetitle {
+	font-size: 1.5em;
 }
 
 .home {
-	padding: 0.5em;
+	padding: 1em;
 }
 
-.game {
-	padding: 1em;
+.gamelist {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.gamecard {
+	padding: 0.5em;
 	background-color: var(--primary);
 	color: var(--textLight);
-	border-radius: 0.5em;
 	display: flex;
 	gap:1em;
 	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 0.5em 1px var(--accentLight);
+}
+
+.gamelook {
+	display: flex;
+	align-items: center;
+	gap:1em;
 }
 
 .gamedata {
@@ -59,10 +78,28 @@ body {
 	margin: 0;
 }
 
+.gametitle {
+	font-size: 1em;
+}
+
 .gameimg {
 	width: 5em;
 	height: 5em;
 	border-radius: 1em;
+	box-shadow: 0.2em 0.2em 5px var(--accentLight);
+}
+
+.hearticon {
+	font-size: 2em;
+	color: var(--textLight);
+}
+
+.seeallbtn {
+	padding: 1em;
+	border-radius: 1em;
+	background-color: var(--accent);
+	text-align: center;
+	width: 10em;
 }
 
 .footer {
