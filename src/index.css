@@ -94,6 +94,11 @@ body {
 	color: var(--textLight);
 }
 
+.btncontainer {
+	display: flex;
+	justify-content: center;
+}
+
 .seeallbtn {
 	padding: 1em;
 	border-radius: 1em;
