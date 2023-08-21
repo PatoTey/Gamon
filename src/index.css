@@ -41,6 +41,10 @@ body {
 	font-size: 1.5em;
 }
 
+.welcome {
+	text-align: center;
+}
+
 .home {
 	padding: 1em;
 }
@@ -105,6 +109,149 @@ body {
 	background-color: var(--accent);
 	text-align: center;
 	width: 10em;
+	color: var(--textLight);
+}
+
+.centersubtitle{
+	text-align: center;
+}
+
+.unlink {
+	color: inherit;
+	text-decoration: none;
+}
+
+.gameselected {
+	background-color: var(--accent);
+	padding: 1em;
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--textLight);
+}
+
+.gsimage {
+	width: 15em;
+	border-radius: 1em;
+}
+
+.fav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+.gsname {
+	font-size: 2.5em;
+	text-align: center;
+}
+
+.gsprice {
+	font-size: 1.5em;
+}
+
+.buygame {
+	display: flex;
+	justify-content: center;
+}
+
+.buybtn {
+	background-color: rgb(245, 245, 109);
+	padding: 1em;
+	width: 10em;
+	border-radius: 0.5em;
+	font-size: 1.5em;
+	font-family: inherit;
+	margin-bottom: 3em;
+}
+
+.moregames {
+	text-align: center;
+}
+
+.sectiongames {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap:1em;
+}
+
+.about {
+	padding: 1em;
+	margin-bottom: 3em;
+}
+
+.aboutus button {
+	padding: 1em;
+	background-color: var(--accent);
+	border: none;
+	border-radius: 1em;
+	margin-right: 1em;
+}
+
+.aboutus {
+	margin-bottom: 3em;
+}
+
+.history {
+	color: var(--text);
+}
+
+.contact {
+	padding: 1em;
+}
+
+.problems {
+	margin-bottom: 3em;
+}
+
+.problems button {
+	background-color: rgb(234, 234, 104);
+	border: none;
+	font-family: inherit;
+	padding: 1em;
+	border-radius: 1em;
+}
+
+.othercontact {
+	display: flex;
+	flex-direction: column;
+	gap: 3em;
+}
+
+.contactmail {
+	color: var(--primary);
+}
+
+.info {
+	color: var(--text);
+	background-color: var(--secondary);
+	margin-top: 3em;
+	padding: 2em;
+	display: flex;
+	font-size: 0.8rem;
+	gap: 2em;
+	justify-content: center;
+}
+
+.info1, .info2 {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	line-height: 1.6em;
+}
+
+.info1 ul, .info2 ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.listtitle {
+	font-weight: bold;
+	font-size: 0.85rem;
 }
 
 .footer {
@@ -112,4 +259,54 @@ body {
 	padding: 1.5em;
 	color: var(--secondary);
 	text-align: center;
+}
+
+@media (min-width: 768px){
+	.gamelist {
+		display: grid;
+		grid-template-columns: repeat(4,1fr);
+		grid-auto-rows: minmax(100px, auto);
+		gap: 1em;
+	}
+
+	.sitetitle {
+		font-size: 2em;
+	}
+
+	.headernav {
+		gap: 1em;
+	}
+
+	.navitem {
+		font-size: 1.5em;
+	}
+
+	.gamecard {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.gamelook {
+		flex-direction: column;
+	}
+	
+	.gametitle {
+		font-size: 1.5em;
+		text-align: center;
+	}
+	
+	.gameimg {
+		width: 10em;
+		height: 10em;
+		box-shadow: 0.5em 0.5em 5px var(--accentLight);
+	}
+	
+	.hearticon {
+		font-size: 2.3em;
+	}
+
+	.gamedata {
+		text-align: center;
+	}
+
 }
