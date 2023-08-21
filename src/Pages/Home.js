@@ -15,7 +15,6 @@ export default function Home(){
             .then(res => setGamegen(res.data))
     },[])
 
-
     const gamelist = games.map(game => {
         return (
             <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
@@ -52,6 +51,8 @@ export default function Home(){
         )
     })
 
+    console.log(gamegen)
+
     const cheapgames = games.filter(game => game.price < 15)
     const cheapgameslist =  cheapgames.map(game => {
         return (
@@ -69,6 +70,7 @@ export default function Home(){
             </div>
         )
     })
+    
     return (
         <div className="home">
             <h1 className="welcome">Welcome to Gamon! Find your desired game here with the best prices!</h1>
@@ -82,7 +84,7 @@ export default function Home(){
             <h1 className="centersubtitle">You will love this genre</h1>
             <div className="gamelist">
                 {gameswithgenre}
-            </div>
+            </div>  
 
             <h1 className="centersubtitle">Games under $15</h1>
             <div className="gamelist">

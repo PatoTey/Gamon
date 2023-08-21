@@ -87,7 +87,7 @@ body {
 }
 
 .gameimg {
-	width: 5em;
+	min-width: 5em;
 	height: 5em;
 	border-radius: 1em;
 	box-shadow: 0.2em 0.2em 5px var(--accentLight);
@@ -146,6 +146,13 @@ body {
 .gsname {
 	font-size: 2.5em;
 	text-align: center;
+}
+
+.metacritic {
+	background-color: var(--background);
+	color: var(--text);
+	padding: 1em;
+	border-radius: 50%;
 }
 
 .gsprice {
@@ -284,6 +291,7 @@ body {
 	.gamecard {
 		display: flex;
 		flex-direction: column;
+		height: 20em;
 	}
 	
 	.gamelook {
@@ -308,5 +316,4 @@ body {
 	.gamedata {
 		text-align: center;
 	}
-
 }

@@ -46,6 +46,10 @@ export default function Game(){
                             <FaRegHeart/>
                         </div>
                     <p>{game.sinopsis}</p>
+                    <div className="metacritic">
+                        {game.rating}
+                    </div>
+
                     <p className="gsprice">${game.price} USD</p>
                 </div>
             }
