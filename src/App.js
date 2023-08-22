@@ -6,6 +6,10 @@ import Game from "./Pages/Game"
 import Games from "./Pages/Games"
 import About from "./Pages/About"
 import Contact from "./Pages/Contact"
+import Howtobuy from "./Pages/Howtobuy"
+import FAQs from "./Pages/FAQs"
+import FAQC from "./Components/FAQ"
+import FAQP from "./Pages/FAQ"
 
 function App() {
 	return (
@@ -17,6 +21,9 @@ function App() {
 					<Route path="games" element={<Games/>} />
 					<Route path="about" element={<About/>} />
 					<Route path="contact" element={<Contact/>} />
+					<Route path="howtobuy" element={<Howtobuy/>}/>
+					<Route path="faqs" element={<FAQs/>}/>
+					<Route path="faqs/:id" element={<FAQP/>} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

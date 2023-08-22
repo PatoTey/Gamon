@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Axios from "axios"
 import { Link } from "react-router-dom";
 import {FaRegHeart} from "react-icons/fa"
+import BackBtn from "../Components/BackBtn";
 
 export default function Game(){
     const [game, setGame] = useState()
@@ -17,7 +18,7 @@ export default function Game(){
             .then(res => setGame(res.data))
     },[params])   
 
-    const gamelist = games.map(game => {
+    const gamelist = games.filter(game=>game.id < 7).map(game => {
         return (
             <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
                 <div className="gamecard" >
@@ -37,7 +38,8 @@ export default function Game(){
     }) 
 
     return (
-        <div>
+        <div style={{padding: "1em"}}>
+            <BackBtn/>
             {game &&
                 <div className="gameselected">
                     <img className="gsimage" src={game.image} alt={game.name} />
@@ -59,6 +61,9 @@ export default function Game(){
            <h1 className="moregames">Check more Games</h1>
             <div className="gamelist">
                 {gamelist}
+            </div>
+            <div className="btncontainer" >
+                <Link className="unlink" to="games"><p className="seeallbtn">See All</p></Link>
             </div>
         </div>
     )

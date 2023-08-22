@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Axios from "axios"
 import {FaRegHeart} from "react-icons/fa"
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../Context/ThemeContext";
 
 export default function Home(){
     const [games, setGames] = useState([])
     const [gamegen, setGamegen] = useState([])
+    const {theme} = useContext(ThemeContext)
 
     useEffect(()=>{
         Axios.get("http://localhost:3001/games/get")
@@ -15,7 +17,7 @@ export default function Home(){
             .then(res => setGamegen(res.data))
     },[])
 
-    const gamelist = games.map(game => {
+    const gamelist = games.filter(game=>game.id < 7).map(game => {
         return (
             <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
                 <div className="gamecard" >
@@ -36,43 +38,45 @@ export default function Home(){
 
     const gameswithgenre = gamegen.map(game => {
         return (
-            <div className="gamecard" key={game.id}>
-                <div className="gamelook">
-                    <img className="gameimg" src={game.image} alt={game.name}/>
-                    <div className="gamedata">
-                        <h2 className="gametitle">{game.name}</h2>
-                        <h3> for ${game.price} USD</h3>
+            <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
+                <div className="gamecard" key={game.id}>
+                    <div className="gamelook">
+                        <img className="gameimg" src={game.image} alt={game.name}/>
+                        <div className="gamedata">
+                            <h2 className="gametitle">{game.name}</h2>
+                            <h3> for ${game.price} USD</h3>
+                        </div>
+                    </div>
+                    <div className="hearticon">
+                        <FaRegHeart/>
                     </div>
                 </div>
-                <div className="hearticon">
-                    <FaRegHeart/>
-                </div>
-            </div>
+            </Link>
         )
     })
 
-    console.log(gamegen)
-
-    const cheapgames = games.filter(game => game.price < 15)
+    const cheapgames = games.filter(game => game.price <= 14.99)
     const cheapgameslist =  cheapgames.map(game => {
         return (
-            <div className="gamecard" key={game.id}>
-                <div className="gamelook">
-                    <img className="gameimg" src={game.image} alt={game.name}/>
-                    <div className="gamedata">
-                        <h2 className="gametitle">{game.name}</h2>
-                        <h3> for ${game.price} USD</h3>
+            <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
+                <div className="gamecard" key={game.id}>
+                    <div className="gamelook">
+                        <img className="gameimg" src={game.image} alt={game.name}/>
+                        <div className="gamedata">
+                            <h2 className="gametitle">{game.name}</h2>
+                            <h3> for ${game.price} USD</h3>
+                        </div>
+                    </div>
+                    <div className="hearticon">
+                        <FaRegHeart/>
                     </div>
                 </div>
-                <div className="hearticon">
-                    <FaRegHeart/>
-                </div>
-            </div>
+            </Link>
         )
     })
     
     return (
-        <div className="home">
+        <div className={`home ${theme}`}>
             <h1 className="welcome">Welcome to Gamon! Find your desired game here with the best prices!</h1>
             <div className="gamelist">
                 {gamelist}

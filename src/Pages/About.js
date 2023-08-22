@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../Context/ThemeContext";
 
 export default function About(){
+    const {theme} = useContext(ThemeContext)
     return (
-        <section className="about">
+        <section className={`about ${theme}`}>
             <div className="aboutus">
                 <h2>About Gamon</h2>
                 <h1>Our mission is to help everyone find and enjoy what videogames offer</h1>
                 <p>Games go beyond entertaiment. We are building a secure game markerplate, afordable and sustainable for every gamer.</p>
-                <button>Join our Team</button>
+                <button className={`aboutusbtn ${theme === "light" ? "abtbtnlight": ""}`}>Join our Team</button>
                 <small>See Privacy of Candidates</small>
             </div>
             <div className="history">

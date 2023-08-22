@@ -47,6 +47,7 @@ body {
 
 .home {
 	padding: 1em;
+	padding-bottom: 3em;
 }
 
 .gamelist {
@@ -188,10 +189,10 @@ body {
 
 .about {
 	padding: 1em;
-	margin-bottom: 3em;
+	padding-bottom: 3em;
 }
 
-.aboutus button {
+.aboutusbtn {
 	padding: 1em;
 	background-color: var(--accent);
 	border: none;
@@ -199,13 +200,15 @@ body {
 	margin-right: 1em;
 }
 
+.abtbtnlight {
+	background-color: var(--accentLight);
+	color: var(--text);
+}
+
 .aboutus {
 	margin-bottom: 3em;
 }
 
-.history {
-	color: var(--text);
-}
 
 .contact {
 	padding: 1em;
@@ -215,12 +218,17 @@ body {
 	margin-bottom: 3em;
 }
 
-.problems button {
+.problemsbtn {
 	background-color: rgb(234, 234, 104);
 	border: none;
 	font-family: inherit;
 	padding: 1em;
 	border-radius: 1em;
+}
+
+.tkbtnlight{
+	background-color: rgb(104, 104, 234);
+	color: var(--text);
 }
 
 .othercontact {
@@ -231,17 +239,26 @@ body {
 
 .contactmail {
 	color: var(--primary);
+	font-weight: bold;
+}
+
+.ctmaillight{
+	color: #B53ECC;
 }
 
 .info {
 	color: var(--text);
 	background-color: var(--secondary);
-	margin-top: 3em;
 	padding: 2em;
 	display: flex;
 	font-size: 0.8rem;
 	gap: 2em;
 	justify-content: center;
+}
+
+.infolight {
+	color: var(--textLight);
+	background-color: var(--secondaryLight);
 }
 
 .info1, .info2 {
@@ -261,11 +278,41 @@ body {
 	font-size: 0.85rem;
 }
 
+.howtobuysection {
+	padding: 1em;
+}
+
+.faqs {
+	padding: 1em;
+}
+
+.faq {
+	border-bottom: 1px solid var(--text);
+	padding: 1em;
+}
+
+.faqborderlight {
+	border-bottom: 1px solid var(--textLight);
+}
+
+.faqquestion {
+	display: flex;
+}
+
+.faqpage {
+	padding: 1em;
+}
+
 .footer {
 	background-color: var(--accent);
 	padding: 1.5em;
 	color: var(--secondary);
 	text-align: center;
+}
+
+.ft-light {
+	background-color: var(--accentLight);
+	color: var(--secondaryLight);
 }
 
 @media (min-width: 768px){
@@ -316,4 +363,76 @@ body {
 	.gamedata {
 		text-align: center;
 	}
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--background);
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  .slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--accent);
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  input:checked + .slider {
+	background-color: var(--backgroundLight);
+  }
+  
+  input:focus + .slider {
+	box-shadow: 0 0 1px var(--primary);
+  }
+  
+  input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+	border-radius: 34px;
+  }
+  
+  .slider.round:before {
+	border-radius: 50%;
+  }
+
+.dark {
+	background-color: var(--background);
+	color: var(--text);
+}
+
+.light {
+	background-color: var(--backgroundLight);
+	color: var(--textLight);
 }
