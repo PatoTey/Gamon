@@ -8,8 +8,10 @@ import About from "./Pages/About"
 import Contact from "./Pages/Contact"
 import Howtobuy from "./Pages/Howtobuy"
 import FAQs from "./Pages/FAQs"
-import FAQC from "./Components/FAQ"
 import FAQP from "./Pages/FAQ"
+import ShoppingCart from "./Pages/ShoppingCart"
+import FavoriteGames from "./Pages/FavoriteGames"
+import NotFound from "./Pages/NotFound"
 
 function App() {
 	return (
@@ -24,6 +26,9 @@ function App() {
 					<Route path="howtobuy" element={<Howtobuy/>}/>
 					<Route path="faqs" element={<FAQs/>}/>
 					<Route path="faqs/:id" element={<FAQP/>} />
+					<Route path="cart" element={<ShoppingCart/>}/>
+					<Route path="favorites" element={<FavoriteGames/>}/>
+					<Route path="*" element={<NotFound/>}/>
 				</Route>
 			</Routes>
 		</BrowserRouter>

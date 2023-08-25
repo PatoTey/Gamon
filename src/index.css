@@ -17,11 +17,31 @@ body {
 	font-family: 'Merriweather Sans', sans-serif;
 }
 
+.headerlayout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap:1em;
+}
+
+.navicons {
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	padding: 0 1em;
+	font-size: 3rem;
+	gap: 1em;
+}
+
 .header {
-	padding: 1em;
+	padding:1em;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 90%;
+	margin: 0;
+	gap: 1em;
 }
 
 .headernav {
@@ -35,10 +55,12 @@ body {
 	text-align: center;
 	border-radius: 1em;
 	font-size: 0.8em;
+	margin: 0;
 }
 
 .sitetitle {
 	font-size: 1.5em;
+	margin: 0;
 }
 
 .welcome {
@@ -48,12 +70,15 @@ body {
 .home {
 	padding: 1em;
 	padding-bottom: 3em;
+	display: flex;
+	flex-direction: column;
 }
 
 .gamelist {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+	justify-content: center;
 }
 
 .gamecard {
@@ -132,16 +157,22 @@ body {
 	color: var(--textLight);
 }
 
+.gsintro {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1em;
+}
+
+.gsintrodata {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .gsimage {
 	width: 15em;
 	border-radius: 1em;
-}
-
-.fav {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1em;
 }
 
 .gsname {
@@ -149,12 +180,21 @@ body {
 	text-align: center;
 }
 
+.gsdata {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .metacritic {
 	background-color: var(--background);
 	color: var(--text);
 	padding: 1em;
 	border-radius: 50%;
+	width: 1.5em;
+	text-align: center;
 }
+
 
 .gsprice {
 	font-size: 1.5em;
@@ -173,6 +213,10 @@ body {
 	font-size: 1.5em;
 	font-family: inherit;
 	margin-bottom: 3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
 }
 
 .moregames {
@@ -190,6 +234,8 @@ body {
 .about {
 	padding: 1em;
 	padding-bottom: 3em;
+	display: flex;
+	flex-direction: column;
 }
 
 .aboutusbtn {
@@ -289,6 +335,7 @@ body {
 .faq {
 	border-bottom: 1px solid var(--text);
 	padding: 1em;
+	cursor: pointer;
 }
 
 .faqborderlight {
@@ -315,12 +362,95 @@ body {
 	color: var(--secondaryLight);
 }
 
+.redheart {
+	color: rgb(236, 82, 82);
+}
+
+.shoppingpage {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cartlist {
+	display: flex;
+	flex-direction: column;
+	gap:1em;
+}
+
+.form {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.formlabel {
+	font-family: inherit;
+	font-size: 2.5vw;
+}
+
+.formlabel-dark {
+	color: var(--textLight);
+}
+
+.formlabel-light {
+	color: var(--text);
+}
+
+.formInput {
+	border-radius: 1em;
+	border: none;
+	padding: 1em;
+	font-family: inherit;
+}
+
+.formInput-dark {
+	background-color: var(--secondaryLight);
+	color: var(--textLight);
+}
+
+.formInput-light {
+	background-color: var(--background);
+	color: var(--text);
+	border: 0.2em solid var(--secondaryLight);
+}
+
+.form-dark {
+	background-color: var(--accent);
+}
+
+.form-light {
+	background-color: var(--accentLight);
+}
+
+.summary {
+	text-align: center;
+}
+
+.formbtn {
+	background-color: rgb(247, 247, 86);
+	font-family: inherit;
+	padding: 0.5em;
+	border: none;
+}
+
 @media (min-width: 768px){
+	.headerlayout{
+		flex-direction: row;
+	}
+
+	.home {
+		align-items: center;
+	}
+
 	.gamelist {
 		display: grid;
-		grid-template-columns: repeat(4,1fr);
-		grid-auto-rows: minmax(100px, auto);
+		grid-template-columns: repeat(5,1fr);
+		grid-auto-rows: minmax(6.25em, auto);
 		gap: 1em;
+		padding: 0 1em;
 	}
 
 	.sitetitle {
@@ -335,25 +465,46 @@ body {
 		font-size: 1.5em;
 	}
 
+	.gamecontainer{
+		height: 25vw;
+		width: 14.5vw;
+	}
+
 	.gamecard {
 		display: flex;
 		flex-direction: column;
-		height: 20em;
+		width: 100%;
+		padding: 0;
+		font-size: 1vw;
+	}
+
+	.gamecard .unlink {
+		width: 100%;
 	}
 	
 	.gamelook {
 		flex-direction: column;
+		width: 100%;
 	}
 	
 	.gametitle {
-		font-size: 1.5em;
+		font-size: 1vw;
 		text-align: center;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: 10vw;
+	}
+
+	.gameprice {
+		font-size: 1vw;
 	}
 	
 	.gameimg {
-		width: 10em;
-		height: 10em;
-		box-shadow: 0.5em 0.5em 5px var(--accentLight);
+		width: 100%;
+		height: 17em;
+		box-shadow: none;
+		border-radius: 0px;
 	}
 	
 	.hearticon {
@@ -362,6 +513,58 @@ body {
 
 	.gamedata {
 		text-align: center;
+	}
+
+	.info1, .info2 {
+		flex-direction: row;
+	}
+
+	.contact {
+		text-align: center;
+	}
+
+	.about {
+		align-items: center;
+		padding: 0 13vw;
+	}
+
+	.gs {
+		padding: 0 15vw;
+		text-align: center;
+	}
+
+	.gameselected {
+		flex-direction: column;
+	}
+	
+	.gameselected + .gamecard {
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.gsintro {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1em;
+	}
+
+	.gsintrodata {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.cart {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.cartlist {
+		display: grid;
+		grid-template-columns: repeat(5,1fr);
+		grid-auto-rows: minmax(6.25em, auto);
 	}
 }
 
@@ -403,8 +606,16 @@ body {
 	-webkit-transition: .4s;
 	transition: .4s;
   }
+
+  .slider-dark {
+	background-color: var(--backgroundLight);
+  }
+
+  .slider-light {
+	background-color: var(--background);
+  }
   
-  input:checked + .slider {
+  input:checked + .slider-dark {
 	background-color: var(--backgroundLight);
   }
   

@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useContext} from "react";
 import Axios from "axios"
-import {FaRegHeart} from "react-icons/fa"
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../Context/ThemeContext";
+import GameComp from "../Components/GameComp";
 
 export default function Home(){
     const [games, setGames] = useState([])
@@ -19,59 +19,20 @@ export default function Home(){
 
     const gamelist = games.filter(game=>game.id < 7).map(game => {
         return (
-            <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
-                <div className="gamecard" >
-                    <div className="gamelook">
-                        <img className="gameimg" src={game.image} alt={game.name}/>
-                        <div className="gamedata">
-                            <h2 className="gametitle">{game.name}</h2>
-                            <h3> for ${game.price} USD</h3>
-                        </div>
-                    </div>
-                    <div className="hearticon">
-                        <FaRegHeart/>
-                    </div>
-                </div>
-            </Link>
+            <GameComp game={game} key={game.id} />
         )
     })
 
     const gameswithgenre = gamegen.map(game => {
         return (
-            <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
-                <div className="gamecard" key={game.id}>
-                    <div className="gamelook">
-                        <img className="gameimg" src={game.image} alt={game.name}/>
-                        <div className="gamedata">
-                            <h2 className="gametitle">{game.name}</h2>
-                            <h3> for ${game.price} USD</h3>
-                        </div>
-                    </div>
-                    <div className="hearticon">
-                        <FaRegHeart/>
-                    </div>
-                </div>
-            </Link>
+            <GameComp game={game} key={game.id} />
         )
     })
 
     const cheapgames = games.filter(game => game.price <= 14.99)
     const cheapgameslist =  cheapgames.map(game => {
         return (
-            <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
-                <div className="gamecard" key={game.id}>
-                    <div className="gamelook">
-                        <img className="gameimg" src={game.image} alt={game.name}/>
-                        <div className="gamedata">
-                            <h2 className="gametitle">{game.name}</h2>
-                            <h3> for ${game.price} USD</h3>
-                        </div>
-                    </div>
-                    <div className="hearticon">
-                        <FaRegHeart/>
-                    </div>
-                </div>
-            </Link>
+            <GameComp game={game} key={game.id}/>
         )
     })
     
