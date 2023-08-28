@@ -1,18 +1,34 @@
-import React, {useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import useToggler from "../Hooks/useToggler";
+import { FavoriteContext } from "../Context/FavoriteContext";
 
 export default function GameComp({game}){
     const [on, toggle] = useToggler()
+    const {favoriteGames, addFavorite, removeFavorite} = useContext(FavoriteContext)
     
     useEffect(()=>{
-        
-    },[])
+        const isFavorite = favoriteGames.filter(gamefav => gamefav.id === game.id )
+        if(isFavorite.length){
+            if(!on){
+                toggle()
+            }
+        }else{
+            if(on){
+                toggle()
+            }
+        }
+    },[favoriteGames, game.id, on, toggle])
 
     function handlefavorite(){
-        toggle() 
+        toggle()
+        if(!on){
+            addFavorite(game)
+        }else{
+            removeFavorite(game)
+        }
     }
 
     return(

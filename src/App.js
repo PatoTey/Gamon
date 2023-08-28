@@ -12,6 +12,8 @@ import FAQP from "./Pages/FAQ"
 import ShoppingCart from "./Pages/ShoppingCart"
 import FavoriteGames from "./Pages/FavoriteGames"
 import NotFound from "./Pages/NotFound"
+import CheckOut from "./Pages/CheckOut"
+import PaySucces from "./Pages/PaySucces"
 
 function App() {
 	return (
@@ -28,7 +30,9 @@ function App() {
 					<Route path="faqs/:id" element={<FAQP/>} />
 					<Route path="cart" element={<ShoppingCart/>}/>
 					<Route path="favorites" element={<FavoriteGames/>}/>
+					<Route path="checkout" element={<CheckOut/>}/>
 					<Route path="*" element={<NotFound/>}/>
+					<Route path="paysuccess" element={<PaySucces/>}/>
 				</Route>
 			</Routes>
 		</BrowserRouter>

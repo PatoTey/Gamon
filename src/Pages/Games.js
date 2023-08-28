@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import Axios from "axios";
-import { Link } from "react-router-dom";
-import {FaRegHeart} from "react-icons/fa"
 import { ThemeContext } from "../Context/ThemeContext";
+import GameComp from "../Components/GameComp";
 
 export default function Games(){
     const [games, setGames] = useState([])
@@ -15,20 +14,7 @@ export default function Games(){
 
     const gamelist = games.map(game => {
         return (
-            <Link className="unlink" to={`/game/${game.id}`} key={game.id}>
-                <div className="gamecard" >
-                    <div className="gamelook">
-                        <img className="gameimg" src={game.image} alt={game.name}/>
-                        <div className="gamedata">
-                            <h2 className="gametitle">{game.name}</h2>
-                            <h3> for ${game.price} USD</h3>
-                        </div>
-                    </div>
-                    <div className="hearticon">
-                        <FaRegHeart/>
-                    </div>
-                </div>
-            </Link>
+            <GameComp game={game}/>
         )
     })
 

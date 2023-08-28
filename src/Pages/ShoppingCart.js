@@ -6,29 +6,19 @@ import { Link } from "react-router-dom";
 
 export default function ShoppingCart(){
     const {theme} = useContext(ThemeContext)
-    const {cart, removefromCart} = useContext(CartContext)
-
-    function calculateTotal(){
-        var total = 0
-        for(let i=0; i<cart.length; i++){
-            total += cart[i].price
-        }
-        return total
-    }
+    const {cart, removefromCart, getTotal} = useContext(CartContext)
 
     const cartlist = cart.map(item => {
         return (
             <div className="gamecontainer" key={item.key}>
                 <div className="gamecard" >
-                    <Link className="unlink" to={`/game/${item.id}`}>
-                        <div className="gamelook">
-                            <img className="gameimg" src={item.image} alt={item.name}/>
-                            <div className="gamedata">
-                                <h2 className="gametitle">{item.name}</h2>
-                                <h3 className="gameprice"> Price ${item.price} USD</h3>
-                            </div>
+                    <div className="gamelook">
+                        <img className="gameimg" src={item.image} alt={item.name}/>
+                        <div className="gamedata">
+                            <h2 className="gametitle">{item.name}</h2>
+                            <h3 className="gameprice"> Price ${item.price} USD</h3>
                         </div>
-                    </Link>
+                    </div>
                     <div className="hearticon">
                         <FaTrashAlt onClick={()=>removefromCart(item)}/>
                     </div>
@@ -37,29 +27,28 @@ export default function ShoppingCart(){
         )
     } )
 
-    const total = calculateTotal()
-
+    const total = getTotal()
     return (
         <div className={`shoppingpage ${theme}`}>
+            {cartlist.length ? <> 
             <h3>Here's your cart</h3>
-            <p>Your Subtotal: ${total}</p>
+            <p>Your Subtotal: ${total.toFixed(2)}</p>
             <div className="cart">
                 <div className="cartlist">
                     {cartlist}
                 </div>
-                <form className={`form form-${theme}`}>
-                    <label className={`formlabel formlabel-${theme} summary`} aria-label="Summary">Summary</label>
-                    <div>
-                        <label className={`formlabel formlabel-${theme}`} aria-label="Input your name">Name</label>
-                        <input className={`formInput formInput-${theme}`} name="name" type="text" required/>
+                <div className={`summary`}>
+                    <h1>Summary</h1>
+                    <p>{cart.length} products - ${total.toFixed(2)}</p>
+                    <p style={{marginBottom: "1em"}}>Service Fee - $6.99</p>
+                    <div className="btncontainer">
+                        <Link to="/checkout" state={{allowed: "yes"}} className="unlink"><button className="buybtn">Continue with purchase</button></Link>
                     </div>
-                    <div>
-                        <label className={`formlabel formlabel-${theme}`} aria-label="Input your email">Email</label>
-                        <input className={`formInput formInput-${theme}`} name="email" type="email" required/>
-                    </div>
-                    <button className="formbtn">Continue</button>
-                </form>
+                    <small style={{marginTop: "1em"}}>Service fee, is charged for paying the product, administrative and procesing services</small>
+                </div>
             </div>
+            
+            </>: <h1>Your Cart is empty!</h1>}
         </div>
     )
 }
