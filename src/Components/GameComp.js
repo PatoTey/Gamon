@@ -5,6 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import useToggler from "../Hooks/useToggler";
 import { FavoriteContext } from "../Context/FavoriteContext";
 
+
 export default function GameComp({game}){
     const [on, toggle] = useToggler()
     const {favoriteGames, addFavorite, removeFavorite} = useContext(FavoriteContext)

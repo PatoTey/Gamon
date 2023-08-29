@@ -7,7 +7,7 @@ import BackBtn from "../Components/BackBtn";
 export default function FAQ(){
     const params = useParams()
     const {theme} = useContext(ThemeContext)
-    const faq = faqsdata.filter(faqa => faqa.id == params.id)
+    const faq = faqsdata.filter(faqa => faqa.id === params.id)
     
     return (
         <div className={`faqpage ${theme}`}>

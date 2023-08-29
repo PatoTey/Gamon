@@ -28,6 +28,7 @@ body {
 .navicons {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	width: 50%;
 	padding: 0 1em;
 	font-size: 3rem;
@@ -110,10 +111,12 @@ body {
 
 .gametitle {
 	font-size: 1em;
+	text-align: start;
 }
 
 .gameimg {
 	min-width: 5em;
+	max-width: 5.2em;
 	height: 5em;
 	border-radius: 1em;
 	box-shadow: 0.2em 0.2em 5px var(--accentLight);
@@ -216,6 +219,10 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 1em;
+}
+
+.buybtn:active {
+	background-color: orange;
 }
 
 .moregames {
@@ -518,9 +525,44 @@ body {
 	justify-content: center;
 }
 
+.loader {
+	font-size: 1.5rem;
+	text-align: center;
+	padding: 2em;
+}
+
+.loadingbar {
+	font-size: 7rem;
+	animation-name: rotate;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+
+@media (max-width:349px){
+	.gametitle {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: 40vw;
+	}
+}
+
 @media (min-width: 768px){
 	.headerlayout{
 		flex-direction: row;
+	}
+
+	.header {
+		justify-content: center;
+		width: auto;
+	}
+	.navicons{
+		width: auto;
 	}
 
 	.home {
@@ -578,7 +620,7 @@ body {
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		overflow: hidden;
-		max-width: 10vw;
+		max-width: 13vw;
 	}
 
 	.gameprice {
@@ -587,6 +629,7 @@ body {
 	
 	.gameimg {
 		width: 100%;
+		max-width: 100000px;
 		height: 17em;
 		box-shadow: none;
 		border-radius: 0px;
@@ -644,7 +687,7 @@ body {
 	.cart {
 		display: flex;
 		flex-direction: row;
-		align-items: start;
+		align-items: flex-start;
 	}
 
 	.cartlist {
@@ -659,7 +702,7 @@ body {
 
 	.sectioncheckout{
 		flex-direction: row;
-		align-items: start;
+		align-items: flex-start;
 		justify-content: center;
 	}
 
@@ -671,9 +714,9 @@ body {
 .switch {
 	position: relative;
 	display: inline-block;
-	width: 60px;
+	min-width: 60px;
 	height: 34px;
-  }
+}
   
   /* Hide default HTML checkbox */
   .switch input {
@@ -683,7 +726,7 @@ body {
   }
   
   /* The slider */
-  .slider {
+.slider {
 	position: absolute;
 	cursor: pointer;
 	top: 0;
@@ -693,9 +736,10 @@ body {
 	background-color: var(--background);
 	-webkit-transition: .4s;
 	transition: .4s;
-  }
+
+}
   
-  .slider:before {
+.slider:before {
 	position: absolute;
 	content: "";
 	height: 26px;
@@ -705,38 +749,38 @@ body {
 	background-color: var(--accent);
 	-webkit-transition: .4s;
 	transition: .4s;
-  }
+}
 
-  .slider-dark {
+.slider-dark {
 	background-color: var(--backgroundLight);
-  }
+}
 
-  .slider-light {
+.slider-light {
 	background-color: var(--background);
-  }
+}
   
-  input:checked + .slider-dark {
+input:checked + .slider-dark {
 	background-color: var(--backgroundLight);
-  }
+}
   
-  input:focus + .slider {
+input:focus + .slider {
 	box-shadow: 0 0 1px var(--primary);
-  }
+}
   
-  input:checked + .slider:before {
+input:checked + .slider:before {
 	-webkit-transform: translateX(26px);
 	-ms-transform: translateX(26px);
 	transform: translateX(26px);
-  }
+}
   
   /* Rounded sliders */
-  .slider.round {
+.slider.round {
 	border-radius: 34px;
-  }
+}
   
-  .slider.round:before {
+.slider.round:before {
 	border-radius: 50%;
-  }
+}
 
 .dark {
 	background-color: var(--background);

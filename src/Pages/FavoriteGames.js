@@ -9,7 +9,7 @@ export default function FavoriteGames(){
 
     const favoritelist = favoriteGames.map(game => {
         return (
-            <GameComp game={game}/>
+            <GameComp game={game} key={game.id}/>
         )
     })
     return (

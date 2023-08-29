@@ -11,10 +11,6 @@ export default function Header(){
         <div className={`headerlayout ${theme}`}>
             <div className={`header ${theme}`}>
                 <Link to="/" className="unlink"><h1 className="sitetitle">Gamon</h1></Link>
-                <label className="switch">
-                    <input type="checkbox" onChange={toggletheme}/>
-                    <span  className={`slider round slider-${theme}`}></span>
-                </label>
                 <nav className="headernav">
                     <Link to="/games" className="unlink"><p className="navitem">Games</p></Link>
                     <Link to="/about" className="unlink"><p className="navitem">About</p></Link>
@@ -24,6 +20,10 @@ export default function Header(){
             <div className={`navicons ${theme}`}>
                 <Link to="/cart" className="unlink"><FaShoppingCart/></Link>
                 <Link to="/favorites" className="unlink"><FaHeart/></Link>
+                <label className="switch">
+                    <input type="checkbox" onChange={toggletheme}/>
+                    <span  className={`slider round slider-${theme}`}></span>
+                </label>
             </div>
         </div>
     )

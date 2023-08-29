@@ -5,7 +5,6 @@ export default function useToggler(){
 
     function toggle(){
         setOn(prev => !prev)
-        console.log("Toggled")
     }
 
     return [on, toggle]

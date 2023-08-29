@@ -48,7 +48,7 @@ export default function ShoppingCart(){
                 </div>
             </div>
             
-            </>: <h1>Your Cart is empty!</h1>}
+            </>: <h1 style={{textAlign: "center"}}>Your Cart is empty!</h1>}
         </div>
     )
 }

@@ -4,7 +4,7 @@ const FavoriteContext = React.createContext()
 
 function FavoriteContextProvider({children}){
     const [favoriteGames, setFavoriteGames] = useState([])
-    console.log(favoriteGames, "favs")
+
     useEffect(()=>{
 
         const storaged = JSON.parse(localStorage.getItem("favorites"))
