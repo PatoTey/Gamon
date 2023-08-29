@@ -30,6 +30,8 @@ export default function Home(){
         loadgames()   
         //Axios.get("http://localhost:3001/games/get/genre")
         //    .then(res => setGamegen(res.data))
+
+        // eslint-disable-next-line
     },[])
 
     const gamelist = games.filter(game=>game.id < 6).map(game => {

@@ -25,6 +25,7 @@ export default function Game(){
     const [loading, setLoading] = useLoader()
     const {favoriteGames, addFavorite, removeFavorite} = useContext(FavoriteContext)
     
+    // eslint-disable-next-line
     useEffect(()=>{
         async function loadgames(){
             setLoading(true)
@@ -40,14 +41,18 @@ export default function Game(){
         loadgames()
         //Axios.get(`http://localhost:3001/game/get/${id}`)
         //           .then(res => setGame(res.data))
+
+        // eslint-disable-next-line
     },[params])  
 
+    // eslint-disable-next-line
     useEffect(()=>{
         const gamesel = gamedata.filter(game => game.id === parseInt(params.id))
         setGame(gamesel[0])
-       
+       // eslint-disable-next-line
     }, [games])
 
+    // eslint-disable-next-line
     useEffect(()=>{
         if(game?.id){
             const isFavorite = favoriteGames.filter(gamefav => gamefav.id === game.id )

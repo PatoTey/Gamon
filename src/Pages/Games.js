@@ -24,6 +24,7 @@ export default function Games(){
             }
         }
         loadData()
+        // eslint-disable-next-line
     },[])
 
     if(loading){
